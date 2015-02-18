@@ -640,8 +640,7 @@ public class ArtifactoryGradleConfigurator extends BuildWrapper implements Deplo
         @Override
         public boolean isApplicable(AbstractProject<?, ?> item) {
             this.item = item;
-            return item.getClass().isAssignableFrom(FreeStyleProject.class) ||
-                    item.getClass().isAssignableFrom(MatrixProject.class);
+            return item instanceof Project;
         }
 
         private void refreshRepositories(ArtifactoryServer artifactoryServer, String credentialsUsername, String credentialsPassword, boolean overridingDeployerCredentials) throws IOException {

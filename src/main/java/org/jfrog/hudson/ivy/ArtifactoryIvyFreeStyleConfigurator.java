@@ -469,8 +469,7 @@ public class ArtifactoryIvyFreeStyleConfigurator extends BuildWrapper implements
         @Override
         public boolean isApplicable(AbstractProject<?, ?> item) {
             this.item = item;
-            return item.getClass().isAssignableFrom(FreeStyleProject.class) ||
-                    item.getClass().isAssignableFrom(MatrixProject.class);
+            return item instanceof Project;
         }
 
         /**

@@ -231,8 +231,7 @@ public class Maven3Builder extends Builder {
 
         @Override
         public boolean isApplicable(Class<? extends AbstractProject> jobType) {
-            return hudson.model.FreeStyleProject.class.isAssignableFrom(jobType)
-                    || hudson.matrix.MatrixProject.class.isAssignableFrom(jobType);
+            return item instanceof Project;
         }
 
         @Override
